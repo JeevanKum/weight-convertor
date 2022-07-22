@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #101010;
+      }
+    </style>
+    <title>Weight Convertor</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="display-4 text-center text-light mb-3">
+            Weight Convertor
+          </h1>
+          <form class="form-group mb-3">
+            <input
+              type="number"
+              id="kgInput"
+              class="form-control form-control-lg"
+              placeholder="Enter weight in kg..."
+            />
+          </form>
+          <div id="output">
+            <div class="card bg-primary mb-3">
+              <div class="card-body">
+                <h4>Weight in Pounds:</h4>
+                <div id="poundOutput"></div>
+              </div>
+            </div>
+            <div class="card bg-success mb-3">
+              <div class="card-body">
+                <h4>Weight in Grams:</h4>
+                <div id="gramOutput"></div>
+              </div>
+            </div>
+            <div class="card bg-danger mb-3">
+              <div class="card-body">
+                <h4>Weight in Ounces:</h4>
+                <div id="ounceOutput"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("output").style.visibility = "hidden";
+      document
+        .getElementById("kgInput")
+        .addEventListener("input", function (e) {
+          document.getElementById("output").style.visibility = "visible";
+          let kiloGram = e.target.value;
+          document.getElementById("poundOutput").innerHTML = kiloGram * 2.20462;
+          document.getElementById("gramOutput").innerHTML = kiloGram * 1000;
+          document.getElementById("ounceOutput").innerHTML = kiloGram * 35.274;
+        });
+    </script>
+  </body>
+</html>
